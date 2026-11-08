@@ -2,4 +2,5 @@
 The best Tower Defense game to ever exist
 
 Creators: Abhyud and Leo
-We are two middle school students
+We are two middle school students who want to make a good game
+
