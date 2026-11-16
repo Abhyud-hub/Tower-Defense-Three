@@ -5,5 +5,6 @@ import math
 
 def draw():
     pass
+
 def main():
     pass
