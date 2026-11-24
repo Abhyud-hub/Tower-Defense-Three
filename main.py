@@ -2,24 +2,40 @@ import pygame
 import time
 import random
 import math
-
+from Objects.Tower import Tower
+BG = (230, 230, 230)
 WIDTH = 600
 HEIGHT = 600
+
+WIN = pygame.display.set_mode((WIDTH, HEIGHT))
+
 
 
 
 def draw():
-    pass
+    WIN.fill(BG)
+    tower = Tower(100, 1, 300, 300, 0)
+    tower.draw(WIN)
+    tower.draw_range_circle(WIN, 30)
+    pygame.display.update()
+
 
 def main():
     
-    fps = 180
-    clock = pygame.time.clock()
+    fps = 60
+    clock = pygame.time.Clock()
+    run = True
 
-    while run:    
+    while run:   
         clock.tick(fps)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
-            if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                run = False
+
+        draw()
+
+
+
+if __name__ == "__main__":
+
+    main()
