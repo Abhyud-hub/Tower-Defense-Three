@@ -1,8 +1,7 @@
 import math
 import pygame
 import random
-from utiles import blit_rotate_center
-WHITE = (255, 255, 255)
+from utiles import pixel_collision, blit_text_center, blit_rotate_center, blit_text_center, WHITE
 
 
 class Tower:
@@ -15,6 +14,10 @@ class Tower:
         self.y = y
         self.heading = 0
         self.image = image
+        self.rangecircle = None
+
+    def circle_collision(self, obj):
+        pixel_collision(self, obj)
 
     def draw(self, win):
         blit_rotate_center(win, self.image, (self.x, self.y), self.heading)
@@ -44,8 +47,8 @@ class Tower:
     def upgrade_status(self):
         self.level += 1
 
-    def draw_range_circle(self, win, radius):
-        pygame.draw.circle(win, WHITE, (self.x, self.y), radius)
+    def range_circle(self, win, radius):
+        self.rangecircle = pygame.draw.circle(win, WHITE, (self.x, self.y), radius)
 
 #will probaby add more for when selected on side bar what will it do
 # will have one function to detect if that happened or not, another to see what to do with that info
